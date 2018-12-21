@@ -1,0 +1,31 @@
+imports:
+  - { resource: "config/parameters.yml" }
+
+services:
+  curriculum.header:
+    class: Curriculum\HeaderWriter
+    arguments:
+      - "%header%"
+      - "%title%"
+      - "%picture%"
+
+  curriculum.left_pane:
+    class: Curriculum\PaneWriter
+    arguments:
+      - "%left_pane%"
+
+  curriculum.right_pane:
+    class: Curriculum\PaneWriter
+    arguments:
+      - "%right_pane%"
+
+  curriculum.renderer:
+    class: Curriculum\Renderer
+    arguments:
+      - "@curriculum.header"
+      - [
+          "@curriculum.left_pane",
+          "@curriculum.right_pane"
+        ]
+      - '%file_name%'
+

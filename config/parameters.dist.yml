@@ -1,0 +1,42 @@
+parameters:
+
+  file_name: "curriculum.txt"
+
+  picture:
+    - '      /\_/\      '
+    - '     ( o.o )     '
+    - '      > ^ <      '
+
+  header:
+    - "NAME"
+    - "ADDRESS"
+    - "PHONE NUMBER"
+    - "EMAIL"
+
+  title: "JOB TITLE"
+
+  left_pane:
+    tables:
+      # Languages table
+      - columns:
+          - {title: "Language", length: 17}
+          - {title: "Level",    length: 7}
+        rows:
+          - ["LANGUAGE", "STAR RATING"]
+
+  right_pane:
+    tables:
+      - row_separator: true
+        columns:
+          - {title: "Entreprise", length: 70, paragraph: "# "}
+          - {title: "Date début", length: 12}
+          - {title: "Date fin", length: 12}
+        rows:
+          - ["SAMPLE PROFESSIONAL EXPERIENCE WITH DESCRIPTION", "BEGINNING DATE", "ENDING DATE"]
+
+      - row_separator: true
+        columns:
+          - {title: "Formation", length: 70, paragraph: "# "}
+          - {title: "Période", length: 25}
+        rows:
+          - ["SAMPLE SCHOOL OR DIPLOMA", "PERIOD"]
