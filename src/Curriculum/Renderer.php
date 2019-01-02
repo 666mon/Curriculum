@@ -14,8 +14,8 @@ class Renderer
 
     /**
      * @param HeaderWriter $header
-     * @param array $panes
-     * @param $fileName
+     * @param PaneWriter[] $panes
+     * @param string $fileName
      */
     public function __construct(HeaderWriter $header, array $panes, $fileName)
     {
