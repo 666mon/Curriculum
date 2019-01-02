@@ -13,11 +13,14 @@ class Renderer
     private $fileName = '';
 
     /**
-     * @param PaneWriter[] $panes
+     * @param HeaderWriter $header
+     * @param array $panes
+     * @param $fileName
      */
     public function __construct(HeaderWriter $header, array $panes, $fileName)
     {
         $this->setData($header, $panes);
+        $this->header->calculateTotalLength();
         $this->fileName = $fileName;
     }
 
@@ -31,6 +34,7 @@ class Renderer
 
         foreach ($panes as $pane)
         {
+            $this->header->addPane($pane);
             $this->addPane($pane);
         }
     }
@@ -97,18 +101,18 @@ class Renderer
 
     public function renderAndSave()
     {
-        file_put_contents('generated/'.$this->fileName, $this->renderAndReturn());
+        $path = 'generated/'.$this->fileName;
+
+        if (file_exists($path))
+        {
+            unlink($path);
+        }
+
+        file_put_contents($path, $this->renderAndReturn());
     }
 
     private function renderHeader()
     {
-        foreach ($this->panes as $pane)
-        {
-            $this->header->addPane($pane);
-        }
-
-        $this->header->calculateTotalLength();
-
         foreach ($this->header->render() as $line)
         {
             echo $line.PHP_EOL;
