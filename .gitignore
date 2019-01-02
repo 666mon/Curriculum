@@ -1,3 +1,4 @@
 parameters.yml
 vendor/
 .idea/
+composer.lock
