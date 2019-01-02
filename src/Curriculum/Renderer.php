@@ -70,11 +70,6 @@ class Renderer
                 $pane = $this->panes[$paneIdx];
                 if (array_key_exists($idx, $paneLines))
                 {
-                    if (($pane->getTotalLength() - mb_strlen($paneLines[$idx])) + 1 < 0) {
-                        var_dump($pane->getTotalLength(), mb_strlen($paneLines[$idx]));
-                        var_dump($paneLines[$idx]);
-                        die();
-                    }
                     echo $paneLines[$idx].str_repeat(' ', ($pane->getTotalLength() - mb_strlen($paneLines[$idx])) + 1);
                 }
                 else
