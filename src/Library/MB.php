@@ -11,9 +11,10 @@ class MB
      * @param string $encoding
      * @return string
      */
-    public static function str_pad($input, $pad_len, $pad_str = ' ', $pad_type = STR_PAD_RIGHT, $encoding = "UTF-8")
+    public static function str_pad($input, $pad_len, $pad_str = ' ', $pad_type = STR_PAD_RIGHT, $encoding = 'UTF-8')
     {
-        return str_pad($input, strlen($input) - mb_strlen($input, $encoding) + $pad_len, $pad_str, $pad_type);
+        $padLength = strlen($input) - mb_strlen($input, $encoding) + $pad_len;
+        return str_pad($input, $padLength, $pad_str, $pad_type);
     }
 
     /**
@@ -40,20 +41,20 @@ class MB
             {
                 if (mb_strlen($actual.$word) <= $width)
                 {
-                    $actual .= $word . ' ';
+                    $actual .= $word.' ';
                 }
                 else
                 {
                     if ($actual != '')
                     {
-                        $line .= rtrim($actual) . $break;
+                        $line .= rtrim($actual).$break;
                     }
                     $actual = $word;
                     if ($cut)
                     {
                         while (mb_strlen($actual) > $width)
                         {
-                            $line .= mb_substr($actual, 0, $width).$break;
+                            $line  .= mb_substr($actual, 0, $width).$break;
                             $actual = mb_substr($actual, $width);
                         }
                     }

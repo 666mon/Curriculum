@@ -39,6 +39,7 @@ class TableWriter extends AbstractWriter
         {
             $this->columns[$idx] = array_merge($column, ['idx' => $idx]);
         }
+
         $this->rows = $data['rows'];
         if (array_key_exists('row_separator', $data) && is_bool($data['row_separator']))
         {
@@ -118,7 +119,8 @@ class TableWriter extends AbstractWriter
     {
         $this->separator = '+';
 
-        foreach ($this->columns as $column) {
+        foreach ($this->columns as $column)
+        {
             $this->separator .= str_repeat('-', $column['length'] + (self::PAD_LENGTH - 1)) . '+';
         }
     }

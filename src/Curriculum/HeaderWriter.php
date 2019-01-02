@@ -21,10 +21,9 @@ class HeaderWriter extends AbstractWriter
     private $pictureLength = 0;
 
     /**
-     * HeaderWriter constructor.
-     * @param array $data
-     * @param $jobTitle
-     * @param array $picture
+     * @param array  $data
+     * @param string $jobTitle
+     * @param array  $picture
      */
     public function __construct(array $data, $jobTitle, array $picture = [])
     {

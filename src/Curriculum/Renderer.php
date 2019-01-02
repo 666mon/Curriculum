@@ -57,10 +57,7 @@ class Renderer
         {
             $lines[$idx]  = $pane->render();
             $paneRowCount = count($lines[$idx]);
-            if ($paneRowCount > $maxCount)
-            {
-                $maxCount = $paneRowCount;
-            }
+            $maxCount     = max($maxCount, $paneRowCount);
         }
 
         for ($idx = 0 ; $idx < $maxCount ; $idx++)
