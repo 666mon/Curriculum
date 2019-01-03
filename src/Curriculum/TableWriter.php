@@ -32,8 +32,12 @@ class TableWriter extends AbstractWriter
         }
 
         $this->rows = $data['rows'];
-        if (array_key_exists('row_separator', $data) && is_bool($data['row_separator']))
+        if (array_key_exists('row_separator', $data))
         {
+            if (!is_bool($data['row_separator']))
+            {
+                throw new \UnexpectedValueException('row_separator must be a boolean.');
+            }
             $this->rowSeparator = $data['row_separator'];
         }
 
