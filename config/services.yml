@@ -28,4 +28,6 @@ services:
           "@curriculum.right_pane"
         ]
       - '%file_name%'
-
+    calls:
+      - method: render
+      - method: renderAndSave
