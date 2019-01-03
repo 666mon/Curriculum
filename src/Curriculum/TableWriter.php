@@ -22,15 +22,6 @@ class TableWriter extends AbstractWriter
     private $separator = '';
 
     /**
-     * @param array $data
-     * @return TableWriter
-     */
-    public static function create(array $data)
-    {
-        return new TableWriter($data);
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function setData(array $data)
