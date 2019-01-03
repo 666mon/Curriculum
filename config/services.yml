@@ -2,6 +2,10 @@ imports:
   - { resource: "config/parameters.yml" }
 
 services:
+
+  curriculum.table_writer_factory:
+    class: Curriculum\TableWriter\Factory
+
   curriculum.header:
     class: Curriculum\HeaderWriter
     arguments:
@@ -13,11 +17,13 @@ services:
     class: Curriculum\PaneWriter
     arguments:
       - "%left_pane%"
+      - "@curriculum.table_writer_factory"
 
   curriculum.right_pane:
     class: Curriculum\PaneWriter
     arguments:
       - "%right_pane%"
+      - "@curriculum.table_writer_factory"
 
   curriculum.renderer:
     class: Curriculum\Renderer

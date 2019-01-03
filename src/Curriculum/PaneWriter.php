@@ -1,10 +1,25 @@
 <?php
 namespace Curriculum;
 
+use Curriculum\TableWriter\Factory as TableWriterFactory;
+
 class PaneWriter extends AbstractWriter
 {
     /** @var TableWriter[] */
     private $tables = [];
+
+    /** @var TableWriterFactory */
+    private $tableWriterFactory;
+
+    /**
+     * @param array $data
+     * @param TableWriterFactory $tableWriterFactory
+     */
+    public function __construct(array $data, TableWriterFactory $tableWriterFactory)
+    {
+        $this->tableWriterFactory = $tableWriterFactory;
+        parent::__construct($data);
+    }
 
     /**
      * @param TableWriter $table
@@ -21,7 +36,7 @@ class PaneWriter extends AbstractWriter
     {
         foreach ($data['tables'] as $tableData)
         {
-            $this->addTable(TableWriter::create($tableData));
+            $this->addTable($this->tableWriterFactory->create($tableData));
         }
 
         $this->calculateTotalLength();
