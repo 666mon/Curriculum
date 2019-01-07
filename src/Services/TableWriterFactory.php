@@ -1,9 +1,9 @@
 <?php
-namespace Curriculum\TableWriter;
+namespace Services;
 
 use Curriculum\TableWriter;
 
-class Factory
+class TableWriterFactory
 {
     /**
      * @param array $data

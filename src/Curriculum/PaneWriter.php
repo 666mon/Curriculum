@@ -1,7 +1,7 @@
 <?php
 namespace Curriculum;
 
-use Curriculum\TableWriter\Factory as TableWriterFactory;
+use Services\TableWriterFactory;
 
 class PaneWriter extends AbstractWriter
 {

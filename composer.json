@@ -1,6 +1,6 @@
 {
   "autoload": {
-    "psr-4": {"Curriculum\\": "src/Curriculum/", "Library\\": "src/Library/"}
+    "psr-4": {"Curriculum\\": "src/Curriculum/", "Library\\": "src/Library/", "Services\\": "src/Services/"}
   },
   "require": {
     "symfony/yaml": "^4.2",
